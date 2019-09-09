@@ -15,11 +15,13 @@
 
 ## **主页**
  主页提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
-![主页](img/主页.png)
+<img src="img/主页.png" alt="主页" class="img" />
+
  
 ## **数据服务**
 所有数据任务都在此设置和管理。
-![数据服务主页](img/CMISS主页.png)
+
+<img src="img/CMISS主页.png" alt="CMISS主页" class="img" />
 
 ###  **CMISS**
 
@@ -35,7 +37,7 @@
 1. 打开DataHub 2.0，进入到**数据服务**-**CMISS**
 2. 点击**经纬度配置**设置数据源，设置省市编号,站点级别,保存。
 <div class="notes">
-  <p><strong>备注：</strong> <br>- 格点数据的经纬度配置和此处的经纬度配置是共用的 <br>- 省市编号，选择当前所处省份 <br>- 站点级别：011、012、013表示国家站，只针对obs.xml文件<br>- 数据源参考 http://服务器IP/cimiss-web/api?userId=CMISS用户名&pwd=CMISS密码<br>
+  <p><strong>备注：</strong> <br>- 格点数据的经纬度配置和此处的经纬度配置是共用的，建议选择自动站较多的一小时气温数据读取经纬度配置。<br>- 省市编号，选择当前所处省份 <br>- 站点级别：011、012、013表示国家站，只针对obs.xml文件<br>- 数据源参考 http://服务器IP/cimiss-web/api?userId=CMISS用户名&pwd=CMISS密码<br>
 </p>
 </div>
 3. 手动执行一条任务,可以下载到xls数据文件。
@@ -46,13 +48,14 @@
 8. 点击激活,开启数据自动处理。
 
 **经纬度配置**
-![CMISS经纬度配置](img/CMISS经纬度配置.png)
+
+<img src="img/CMISS经纬度配置.png" alt="CMISS经纬度配置" class="img" />
+
 
 
 **定时配置**
 
-![定时配置](img/CMISS定时配置.png)
-
+<img src="img/CMISS定时配置.png" alt="定时配置" class="img" />
 
 |序号| 数据类型 |更新频次 |
 |--|--|--|
@@ -69,7 +72,12 @@
 </div>
 
 
-#### **添加地面观测**
+#### **地面观测**
+
+<p class="imgTitle">CMISS地面观测数据处理流程</p>
+<img src="img/DataFlow/CMISS地面观测数据处理流程.png" alt="CMISS地面观测数据处理流程" class="dataFlowImg" />
+
+##### **添加地面观测**
 
  1. 点击**添加新项目**
  2. 选择**地面观测**页签
@@ -96,7 +104,18 @@
 
 
 
-#### **添加数值预报**
+#### **数值预报**
+
+
+<p class="imgTitle">CMISS数值预报处理流程</p>
+<img src="img/DataFlow/CMISS数值预报(Ec_thin)处理流程.png" alt="CMISS数值预报(Ec_thin)处理流程" class="dataFlowImg" />
+
+
+<p class="imgTitle">CMISS智能网格处理流程</p>
+<img src="img/DataFlow/CMISS数值预报(智能网格)处理流程.png" alt="CMISS数值预报(智能网格)处理流程" class="dataFlowImg" />
+
+
+##### **添加数值预报**
 
  1. 点击**添加新项目**
  2. 选择**数值预报**页签
@@ -141,7 +160,12 @@
 | 13 | WINU WINV 925 | Ecthin_UV925(EC亚洲925百帕风场)|
 
 
-#### **添加雷达**
+#### **雷达**
+
+<p class="imgTitle">CMISS雷达处理流程</p>
+<img src="img/DataFlow/CMISS雷达处理流程.png" alt="CMISS雷达处理流程" class="dataFlowImg" />
+
+##### **添加雷达**
 
  1. 点击**添加新项目**
  2. 选择**雷达**页签
@@ -152,7 +176,12 @@
 4.  选择**目标路径**，例如：W:\SharedData\Images_DB
 
 
-#### **添加云图**
+#### **卫星云图** 
+
+<p class="imgTitle">CMISS卫星云图处理流程</p>
+<img src="img/DataFlow/CMISS卫星云图处理流程.png" alt="CMISS卫星云图处理流程" class="dataFlowImg" />
+
+##### **添加卫星云图**
 
  1. 点击**添加新项目**
  2. 选择**云图**页签
@@ -162,8 +191,13 @@
 </div>
 4.  选择**目标路径**，例如：W:\SharedData\Images_DB
 
-#### **添加城市预报**
+#### **城镇预报**
 此任务会将SNFWD精细化报文转换为格点数据和点数据。
+
+<p class="imgTitle">CMISS城镇预报处理流程</p>
+<img src="img/DataFlow/CMISS城镇预报处理流程.png" alt="CMISS城镇预报处理流程" class="dataFlowImg" />
+
+##### **添加城镇预报**
 
  1. 点击**添加新项目**
  2. 选择**城镇预报**页签
@@ -173,7 +207,12 @@
 </div>
 4.  选择**目标路径**，例如：W:\SharedData\FetchData
 
-#### **添加台风路径**
+#### **台风路径**
+
+<p class="imgTitle">CMISS台风处理流程</p>
+<img src="img/DataFlow/CMISS台风处理流程.png" alt="CMISS台风处理流程" class="dataFlowImg" />
+
+##### **添加台风路径**
 
 1. 点击**添加新项目**
  2. 选择**台风路径**页签
@@ -196,22 +235,16 @@
  - 查看**日志**
 
 ---
-###  格点数据
+###  **格点数据**
 
 处理非CMISS接口的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）
 
-#### 快速开始
+#### **自动站数据**
 
-1. 点击**导入配置**，选择之前的配置文件，导入所需要的数据任务。
-2. 点击**经纬度配置**，配置数据的经纬度区间。
-<div class="notes">
-  <p><strong>备注：</strong> 请参考CMISS快速开始里的经纬度配置步骤</p>
-</div>
-3. **激活**任务
+<p class="imgTitle">Micaps自动站数据处理流程</p>
+<img src="img/DataFlow/Micaps自动站数据处理流程.png" alt="Micaps自动站数据处理流程" class="dataFlowImg" />
 
-#### 添加自动站数据
-
-<自动站配置截图
+#### **添加自动站数据**
 
  1. 点击**添加新项目**
  2. 选择**自动站**页签
@@ -228,7 +261,15 @@
  7. 设置**源数据时区**，点击确认保存。
 
 
-#### 添加D4类数据
+#### **D4类数据**
+
+<p class="imgTitle">Micaps D4类数据处理流程</p>
+<img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
+ <div class="notes">
+  <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
+</div>
+
+##### **添加D4类数据**
 
  1. 点击**添加新项目**
  2. 选择**D4类数据**页签
@@ -244,7 +285,15 @@
  6. 设置**数据类型**，例如：设置为预报
  7. 设置**源数据时区**，例如：选择“按北京时”，点击确认保存。
 
-#### 添加D11类数据
+#### **D11类数据**
+
+<p class="imgTitle">Micaps D11类数据处理流程</p>
+<img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
+ <div class="notes">
+  <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
+</div>
+
+##### **添加D11类数据**
 
  1. 点击**添加新项目**
  2. 选择**D11类数据**页签
@@ -261,7 +310,13 @@
  7. 设置**数据类型**，例如：设置为预报
  8. 设置**源数据时区**，例如：选择“按北京时”，点击确认保存。
 
-#### 添加D14类数据
+#### **D14类数据**
+
+
+<p class="imgTitle">Micaps第14类数据处理流程</p>
+<img src="img/DataFlow/Micaps第14类数据处理流程.png" alt="Micaps数据预报数据处理流程" class="dataFlowImg" />
+
+##### **添加D14类数据**
 
  1. 点击**添加新项目**
  2. 选择**D14类数据**页签
@@ -275,8 +330,12 @@
   <p><strong>备注：</strong> 系统会根据**数据名称**自动在设置的**目标路径**下自动新建文件夹。</p>
 </div>
 
-#### 添加GRB2数据（单要素）
+#### **GRB2数据（单要素）**
 
+<p class="imgTitle">MicapsGRB2数据处理流程 </p>
+<img src="img/DataFlow/MicapsGRB2数据处理流程.png" alt="MicapsGRB2数据处理流程 " class="dataFlowImg" />
+
+##### **GRB2数据（单要素）**
  1. 点击**添加新项目**
  2. 选择**GRB2数据（单要素）**页签
  3. 填入**数据名称**，例如：
@@ -308,6 +367,9 @@
 ###  卫星云图
 处理非CMISS接口的卫星云图数据
 
+<p class="imgTitle">Micaps卫星云图处理流程 </p>
+<img src="img/DataFlow/Micaps卫星云图处理流程.png" alt="Micaps卫星云图处理流程 " class="dataFlowImg" />
+
 ##### 添加卫星云图
 
  1. 点击**添加新项目**
@@ -327,11 +389,17 @@
 ###  雷达
 处理非CMISS接口的的雷达数据，包括Bin、Pup、LatLon和多站拼图。
 
+<p class="imgTitle">Micaps雷达（需拼图）数据处理流程 </p>
+<img src="img/DataFlow/Micaps雷达（需拼图）数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" />
+
+<p class="imgTitle">Micaps雷达数据处理流程 </p>
+<img src="img/DataFlow/Micaps雷达数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" />
+
 |序号| 雷达|备注 |
 |--|--|--|
 | 1 | Bin | |
 | 2 | Pup | |
-| 3 | LatLon |天气网使用的雷达产品 |
+| 3 | LatLon |天气网使用的雷达产品，无须拼图 |
 | 4 | 多站拼图 | |
 
 ##### 添加Pup
@@ -359,7 +427,10 @@
 ###  城市预报
 处理非CMISS接口的城市预报数据，也会同时转为格点数据和点数据。
 
-#### 添加城市预报
+#### 添加城镇预报
+
+<p class="imgTitle">Micpas城镇预报数据处理流程 </p>
+<img src="img/DataFlow/Micpas城镇预报数据处理流程.png" alt="Micpas城镇预报数据处理流程" class="dataFlowImg" />
 
  1. 点击**添加新项目**
  2. 填入**数据名称**，例如：snwfd_hainan

@@ -1,22 +1,23 @@
 .notes {
   background-color: #f8f8f8;
   line-height: 30px;
- 
+}
+.imgTitle
+{
+     margin: 15px 0 0 0;
+     font-weight:bold;
 }
 
-.manual-header {
-    border: 1px solid #cfcfcf;
-    border-left: none;
-    border-right: none;
-    padding-top: 1em;
-    padding-bottom: 0em;
-    max-width: 800px;
-    z-index: -1;
-    margin-left: 0;
-    margin-top: 1em;
-    margin-bottom: 1em;
+
+.img{
+ width: 70%;
+ height: auto;
+ margin: 5px 0px 5px 0px !important;
 }
-.manual-header.placeimage {
-    width: 2.2em;
-    height: 2.2em;
+
+
+.dataFlowImg {
+ width: 70%;
+ height: auto;
+ margin: 5px 0px 5px 0px !important;
 }
