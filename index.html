@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>DataHub 2.0使用手册</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="css/main.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href=".">DataHub 2.0使用手册</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#_1">新特性</a></li>
+        <li class="main "><a href="#_2">主页</a></li>
+        <li class="main "><a href="#_3">数据服务</a></li>
+            <li><a href="#cmiss">CMISS</a></li>
+            <li><a href="#_18">格点数据</a></li>
+            <li><a href="#_22">卫星云图</a></li>
+            <li><a href="#_24">雷达</a></li>
+            <li><a href="#_26">城市预报</a></li>
+            <li><a href="#_28">脚本调用</a></li>
+            <li><a href="#_29">全国站点管理</a></li>
+            <li><a href="#_30">设置</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<hr />
+<p><div class="notes">
+  文档更新日期：2019-09-09</p>
+</div></p>
+<hr />
+<h3 id="_1"><strong>新特性</strong></h3>
+<ol>
+<li>新的CMISS数据任务集数据下载和转化为一体，改变之前数据下载和转化需要分别配置的情况。</li>
+<li>自动处理单个CMISS接口中包括的所有要素，无须为单个要素新建不同的数据处理任务。</li>
+<li>支持并发处理数据任务，稳定性更高。</li>
+<li>处理数据的时效性更高，支持数据更新消息提醒。</li>
+<li>缩短了数据处理任务的配置时间，新建任务时自动生成相关配置。</li>
+<li>运行于B/S架构，可以在任何机器上监控数据任务的运行情况。</li>
+</ol>
+<h2 id="_2"><strong>主页</strong></h2>
+<p>主页提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
+<img src="img/主页.png" alt="主页" class="img" /></p>
+<h2 id="_3"><strong>数据服务</strong></h2>
+<p>所有数据任务都在此设置和管理。</p>
+<p><img src="img/CMISS主页.png" alt="CMISS主页" class="img" /></p>
+<h3 id="cmiss"><strong>CMISS</strong></h3>
+<p>所有通过CMISS接口获取的数据任务都在此管理，包括地面观测、数值预报、雷达、云图、城镇预报、台风路径和旅游。</p>
+<div class="notes">
+  <p><strong>备注：</strong> 目前旅游数据仅适用于个别用户。</p>
+</div>
+
+<h4 id="_4"><strong>快速开始</strong></h4>
+<ol>
+<li>打开DataHub 2.0，进入到<strong>数据服务</strong>-<strong>CMISS</strong></li>
+<li>点击<strong>经纬度配置</strong>设置数据源，设置省市编号,站点级别,保存。
+<div class="notes">
+  <p><strong>备注：</strong> <br>- 格点数据的经纬度配置和此处的经纬度配置是共用的，建议选择自动站较多的一小时气温数据读取经纬度配置。<br>- 省市编号，选择当前所处省份 <br>- 站点级别：011、012、013表示国家站，只针对obs.xml文件<br>- 数据源参考 http://服务器IP/cimiss-web/api?userId=CMISS用户名&amp;pwd=CMISS密码<br>
+</p>
+</div></li>
+<li>手动执行一条任务,可以下载到xls数据文件。</li>
+<li>点击经纬度配置选择刚下载的xls文件读取经纬度信息,保存。</li>
+<li>手动执行一条任务,检查数据在引擎的渲染效果。</li>
+<li>根据渲染效果调整经纬度。</li>
+<li>点击定时配置,配置数据的更新时间。</li>
+<li>点击激活,开启数据自动处理。</li>
+</ol>
+<p><strong>经纬度配置</strong></p>
+<p><img src="img/CMISS经纬度配置.png" alt="CMISS经纬度配置" class="img" /></p>
+<p><strong>定时配置</strong></p>
+<p><img src="img/CMISS定时配置.png" alt="定时配置" class="img" /></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>数据类型</th>
+<th>更新频次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>地面观测</td>
+<td>每10分钟</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数据预报</td>
+<td>每天的4点、16点</td>
+</tr>
+<tr>
+<td>3</td>
+<td>雷达</td>
+<td>每6分钟</td>
+</tr>
+<tr>
+<td>4</td>
+<td>云图</td>
+<td>每小时的10分，40分</td>
+</tr>
+<tr>
+<td>5</td>
+<td>城镇预报</td>
+<td>每小时的47分</td>
+</tr>
+<tr>
+<td>6</td>
+<td>台风</td>
+<td>每小时的13分</td>
+</tr>
+<tr>
+<td>7</td>
+<td>旅游</td>
+<td>每个整点</td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+  <p><strong>备注：</strong> 上表中的时间使用24小时制。</p>
+</div>
+
+<h4 id="_5"><strong>地面观测</strong></h4>
+<p class="imgTitle">CMISS地面观测数据处理流程</p>
+
+<p><img src="img/DataFlow/CMISS地面观测数据处理流程.png" alt="CMISS地面观测数据处理流程" class="dataFlowImg" /></p>
+<h5 id="_6"><strong>添加地面观测</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>地面观测</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：自动站逐小时观测
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>接口类型</strong>，例如：地面逐小时资料</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
+<div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>接口类型</strong>自动在设置的<strong>目标路径</strong>下自动新建对应的数据文件夹。</p>
+</div></li>
+</ol>
+<p><strong>地面观测接口类型及数据类型对应表</strong></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>接口类型</th>
+<th>数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>地面逐小时资料</td>
+<td>AWS_TEM(自动站整点气温)<br>AWS_Tmax1H(自动站1小时最高温)<br>AWS_Tmin1H(自动站1小时最低温)<br>AWS_Tmax24H(自动站24小时最高气温)<br>AWS_Tmin24H(自动站24小时最低气温）<br>AWS_TEM_Change_24H(自动站24小时变温)<br>AWS_Rain1H(自动站1小时降雨量)<br>AWS_CLO_Cov(自动站总云量)<br>AWS_RHU1H(自动站1小时相对湿度)<br>AWS_CLO_Cov_Low(自动站低云量)<br></td>
+</tr>
+<tr>
+<td>2</td>
+<td>地面日值资料</td>
+<td>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_0820(08到20时的降水)<br>AWS_Rain_2020(20到20时的降水)<br>AWS_Rain_0808(08到08时的降水)<br>AWS_Tmax1D(日最高温)<br>AWS_Tmin1D(日最低温)<br>AWS_Diff1D(日温差）<br>AWS_DTMax1D(日最高变温）<br>AWS_DTMin1D(日最低变温）<br>RHU_Avg1D(日平均相对湿度）<br>RHU_Min1D(日最小相对湿度）<br>VIS_Min1D(日最低能见度）<br></td>
+</tr>
+<tr>
+<td>3</td>
+<td>地面资料统计</td>
+<td>AWS_ACCRain24H(自动站24小时降雨量<br>AWS_Rain3H(自动站3小时降雨量)<br>AWS_Rain6H(自动站6小时降雨量)<br>AWS_Rain12H(自动站12小时降雨量)<br>AWS_VIS24H(自动站24小时最小能见度)<br> AWS_WIN24H(自动站24小时极大风)<br></td>
+</tr>
+<tr>
+<td>4</td>
+<td>累计降水</td>
+<td>AWS_ACCRain（自动站手动逐小时累计降雨量）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>统计降水</td>
+<td>AWS_CountRain（自动站手动降雨量总和）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>逐小时环境</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7"><strong>数值预报</strong></h4>
+<p class="imgTitle">CMISS数值预报处理流程</p>
+
+<p><img src="img/DataFlow/CMISS数值预报(Ec_thin)处理流程.png" alt="CMISS数值预报(Ec_thin)处理流程" class="dataFlowImg" /></p>
+<p class="imgTitle">CMISS智能网格处理流程</p>
+
+<p><img src="img/DataFlow/CMISS数值预报(智能网格)处理流程.png" alt="CMISS数值预报(智能网格)处理流程" class="dataFlowImg" /></p>
+<h5 id="_8"><strong>添加数值预报</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>数值预报</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：欧洲中心细网格
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>接口类型</strong>，例如：欧洲中心-高分辨率-东北亚</li>
+<li>选择<strong>要素</strong> ，例如：TEM 925、TEM 850、GPH 500
+<div class="notes">
+  <p><strong>备注：</strong> 只有接口类型是 欧洲中心-高分辨率-东北亚 需要选择要素。</p>
+</div></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据所选择的<strong>要素</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。。</p>
+</div></li>
+</ol>
+<p><strong>接口类型列表</strong></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>接口类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>欧洲中心-高分辨率-东北亚</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>省级格点预报订正产品</td>
+<td>智能网格</td>
+</tr>
+<tr>
+<td>3</td>
+<td>全国雨量落区预报产品</td>
+<td>D14类数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数值预报-欧洲中心-高分辨率-东北亚-接口要素及数据文件对应表</strong></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>要素</th>
+<th>数据文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>TEM 925</td>
+<td>Ecthin_TEM925(EC亚洲925百帕温度)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TEM 850</td>
+<td>Ecthin_TEM850(EC亚洲850百帕温度)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RHU 850</td>
+<td>Ecthin_RHU850(EC亚洲850百帕相对湿度)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RHU 925</td>
+<td>Ecthin_RHU925(EC亚洲925百帕相对湿度)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GPH 500</td>
+<td>Ecthin_GPH500(EC亚洲500百帕位势高度)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GPH 700</td>
+<td>Ecthin_GPH700(EC亚洲700百帕位势高度)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GPH 850</td>
+<td>Ecthin_GPH850(EC亚洲850百帕位势高度)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GPH 925</td>
+<td>Ecthin_GPH925(EC亚洲925百帕位势高度)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>GPH 1000</td>
+<td>Ecthin_GPH1000(EC亚洲1000百帕位势高度)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>WINU WINV 500</td>
+<td>Ecthin_UV500(EC亚洲500百帕风场)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>WINU WINV 700</td>
+<td>Ecthin_UV700(EC亚洲700百帕风场)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>WINU WINV 850</td>
+<td>Ecthin_UV850(EC亚洲850百帕风场)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>WINU WINV 925</td>
+<td>Ecthin_UV925(EC亚洲925百帕风场)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_9"><strong>雷达</strong></h4>
+<p class="imgTitle">CMISS雷达处理流程</p>
+
+<p><img src="img/DataFlow/CMISS雷达处理流程.png" alt="CMISS雷达处理流程" class="dataFlowImg" /></p>
+<h5 id="_10"><strong>添加雷达</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>雷达</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：Local_1
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB</li>
+</ol>
+<h4 id="_11"><strong>卫星云图</strong></h4>
+<p class="imgTitle">CMISS卫星云图处理流程</p>
+
+<p><img src="img/DataFlow/CMISS卫星云图处理流程.png" alt="CMISS卫星云图处理流程" class="dataFlowImg" /></p>
+<h5 id="_12"><strong>添加卫星云图</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>云图</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：IR1
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB</li>
+</ol>
+<h4 id="_13"><strong>城镇预报</strong></h4>
+<p>此任务会将SNFWD精细化报文转换为格点数据和点数据。</p>
+<p class="imgTitle">CMISS城镇预报处理流程</p>
+
+<p><img src="img/DataFlow/CMISS城镇预报处理流程.png" alt="CMISS城镇预报处理流程" class="dataFlowImg" /></p>
+<h5 id="_14"><strong>添加城镇预报</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>城镇预报</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：CSYB
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData</li>
+</ol>
+<h4 id="_15"><strong>台风路径</strong></h4>
+<p class="imgTitle">CMISS台风处理流程</p>
+
+<p><img src="img/DataFlow/CMISS台风处理流程.png" alt="CMISS台风处理流程" class="dataFlowImg" /></p>
+<h5 id="_16"><strong>添加台风路径</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>台风路径</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：typhoon
+<div class="notes">
+  <p><strong>备注：</strong> 数据名称中英文都可以。</p>
+</div></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData</li>
+</ol>
+<h4 id="_17">数据任务的其它操作</h4>
+<ul>
+<li><strong>激活</strong>任务</li>
+<li>修改<strong>配置</strong>
+<div class="notes">
+  <p><strong>备注：</strong> 修改配置时任务必须处于非激活状态。</p>
+</div></li>
+<li><strong>手动</strong>执行任务</li>
+<li>点击<strong>手动</strong>按钮</li>
+<li>选择开始日期和结束日期，并点击确定。</li>
+<li>查看<strong>日志</strong></li>
+</ul>
+<hr />
+<h3 id="_18"><strong>格点数据</strong></h3>
+<p>处理非CMISS接口的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）</p>
+<h4 id="_19"><strong>自动站数据</strong></h4>
+<p class="imgTitle">Micaps自动站数据处理流程</p>
+
+<p><img src="img/DataFlow/Micaps自动站数据处理流程.png" alt="Micaps自动站数据处理流程" class="dataFlowImg" /></p>
+<h4 id="_20"><strong>添加自动站数据</strong></h4>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>自动站</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：AWS_Tmin1H
+ <div class="notes">
+  <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
+</div></li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\AWS\AWS_Tmin1H</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoTherms
+ <div class="notes">
+  <p><strong>备注：</strong>系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+<li>设置<strong>列表数量</strong>，设置为：100</li>
+<li>设置<strong>源数据时区</strong>，点击确认保存。</li>
+</ol>
+<h4 id="d4"><strong>D4类数据</strong></h4>
+<p class="imgTitle">Micaps D4类数据处理流程</p>
+
+<p><img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
+ <div class="notes">
+  <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
+</div></p>
+<h5 id="d4_1"><strong>添加D4类数据</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>D4类数据</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：Ecthin_GPH500
+ <div class="notes">
+  <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
+</div></li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\Ecthin\Ecthin_GPH500</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoBars
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+<li>设置<strong>数据类型</strong>，例如：设置为预报</li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<h4 id="d11"><strong>D11类数据</strong></h4>
+<p class="imgTitle">Micaps D11类数据处理流程</p>
+
+<p><img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
+ <div class="notes">
+  <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
+</div></p>
+<h5 id="d11_1"><strong>添加D11类数据</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>D11类数据</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：Ecthin_UV500
+ <div class="notes">
+  <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
+</div> </li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\Ecthin\Ecthin_UV500</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\Wind
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+<li>设置<strong>列表数量</strong>，设置为：100</li>
+<li>设置<strong>数据类型</strong>，例如：设置为预报</li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<h4 id="d14"><strong>D14类数据</strong></h4>
+<p class="imgTitle">Micaps第14类数据处理流程</p>
+
+<p><img src="img/DataFlow/Micaps第14类数据处理流程.png" alt="Micaps数据预报数据处理流程" class="dataFlowImg" /></p>
+<h5 id="d14_1"><strong>添加D14类数据</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>D14类数据</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：D14
+ <div class="notes">
+  <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
+</div></li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\D14</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoPrecip
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+</ol>
+<h4 id="grb2"><strong>GRB2数据（单要素）</strong></h4>
+<p class="imgTitle">MicapsGRB2数据处理流程 </p>
+
+<p><img src="img/DataFlow/MicapsGRB2数据处理流程.png" alt="MicapsGRB2数据处理流程 " class="dataFlowImg" /></p>
+<h5 id="grb2_1"><strong>GRB2数据（单要素）</strong></h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>GRB2数据（单要素）</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：
+ <div class="notes">
+  <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
+</div></li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\Ecthin\SmartGrid_SPCC</li>
+<li>在</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoTherms
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+<li>设置<strong>列表数量</strong>，设置为：100</li>
+<li>设置<strong>数据类型</strong>，例如：设置为预报</li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<h4 id="_21">数据任务的其它操作</h4>
+<ul>
+<li><strong>激活</strong>任务</li>
+<li>修改<strong>配置</strong>
+ <div class="notes">
+  <p><strong>备注：</strong> 修改配置时任务必须处于非激活状态。</p>
+</div></li>
+<li><strong>手动</strong>执行任务</li>
+<li>点击<strong>手动</strong>按钮</li>
+<li>选择开始日期和结束日期，并点击确定。</li>
+<li>查看<strong>日志</strong></li>
+</ul>
+<hr />
+<h3 id="_22">卫星云图</h3>
+<p>处理非CMISS接口的卫星云图数据</p>
+<p class="imgTitle">Micaps卫星云图处理流程 </p>
+
+<p><img src="img/DataFlow/Micaps卫星云图处理流程.png" alt="Micaps卫星云图处理流程 " class="dataFlowImg" /></p>
+<h5 id="_23">添加卫星云图</h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>填入<strong>数据名称</strong>，例如：IR1</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\satellite</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\satellite
+ <div class="notes">
+  <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
+</div></li>
+<li>选择<strong>卫星配置</strong>的<strong>通道</strong>，例如：IR1
+ <div class="notes">
+  <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
+</div></li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<hr />
+<h3 id="_24">雷达</h3>
+<p>处理非CMISS接口的的雷达数据，包括Bin、Pup、LatLon和多站拼图。</p>
+<p class="imgTitle">Micaps雷达（需拼图）数据处理流程 </p>
+
+<p><img src="img/DataFlow/Micaps雷达（需拼图）数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" /></p>
+<p class="imgTitle">Micaps雷达数据处理流程 </p>
+
+<p><img src="img/DataFlow/Micaps雷达数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" /></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>雷达</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Bin</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pup</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>LatLon</td>
+<td>天气网使用的雷达产品，无须拼图</td>
+</tr>
+<tr>
+<td>4</td>
+<td>多站拼图</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="pup">添加Pup</h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>Pup</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：Pup</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\radar\Z9770</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\radar
+ <div class="notes">
+  <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
+</div></li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<h5 id="_25">添加多站拼图</h5>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>选择<strong>多站拼图</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：多站拼图</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\radar\radar_pt</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\radar
+ <div class="notes">
+  <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
+</div></li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<hr />
+<h3 id="_26">城市预报</h3>
+<p>处理非CMISS接口的城市预报数据，也会同时转为格点数据和点数据。</p>
+<h4 id="_27">添加城镇预报</h4>
+<p class="imgTitle">Micpas城镇预报数据处理流程 </p>
+
+<p><img src="img/DataFlow/Micpas城镇预报数据处理流程.png" alt="Micpas城镇预报数据处理流程" class="dataFlowImg" /></p>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>填入<strong>数据名称</strong>，例如：snwfd_hainan</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\pointdata\SNWFD_local</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
+ <div class="notes">
+  <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
+</div></li>
+<li>选择<strong>是否移除小数点</strong></li>
+<li>设置<strong>可选参数</strong>，包括备份路径、是否移除数据。</li>
+</ol>
+<h3 id="_28">脚本调用</h3>
+<p>目前只使用在电码的数据转换。</p>
+<h3 id="_29">全国站点管理</h3>
+<p>管理站点的中文名称对照表。</p>
+<h3 id="_30">设置</h3>
+<h4 id="_31">系统设置</h4>
+<h5 id="_32">配置设置</h5></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-09-09 13:50:27
+-->

@@ -1,0 +1,23 @@
+.notes {
+  background-color: #f8f8f8;
+  line-height: 30px;
+}
+.imgTitle
+{
+     margin: 15px 0 0 0;
+     font-weight:bold;
+}
+
+
+.img{
+ width: 70%;
+ height: auto;
+ margin: 5px 0px 5px 0px !important;
+}
+
+
+.dataFlowImg {
+ width: 70%;
+ height: auto;
+ margin: 5px 0px 5px 0px !important;
+}
