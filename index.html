@@ -33,11 +33,27 @@
 
                 <!-- Collapsed navigation -->
                 <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href=".">DataHub 2.0使用手册</a>
                 </div>
 
                 <!-- Expanded navigation -->
                 <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Home</a>
+                            </li>
+                            <li >
+                                <a href="more/">More</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -45,6 +61,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="more/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -54,9 +80,10 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#_1">新特性</a></li>
-        <li class="main "><a href="#_2">主页</a></li>
+        <li class="main "><a href="#_2">概览</a></li>
         <li class="main "><a href="#_3">数据服务</a></li>
             <li><a href="#cmiss">CMISS</a></li>
+        <li class="main "><a href="#micaps">Micaps</a></li>
             <li><a href="#_18">格点数据</a></li>
             <li><a href="#_22">卫星云图</a></li>
             <li><a href="#_24">雷达</a></li>
@@ -70,7 +97,7 @@
 
 <hr />
 <p><div class="notes">
-  文档更新日期：2019-09-09</p>
+  文档更新日期：2019-09-16</p>
 </div></p>
 <hr />
 <h3 id="_1"><strong>新特性</strong></h3>
@@ -82,8 +109,8 @@
 <li>缩短了数据处理任务的配置时间，新建任务时自动生成相关配置。</li>
 <li>运行于B/S架构，可以在任何机器上监控数据任务的运行情况。</li>
 </ol>
-<h2 id="_2"><strong>主页</strong></h2>
-<p>主页提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
+<h3 id="_2"><strong>概览</strong></h3>
+<p>概览提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
 <img src="img/主页.png" alt="主页" class="img" /></p>
 <h2 id="_3"><strong>数据服务</strong></h2>
 <p>所有数据任务都在此设置和管理。</p>
@@ -167,6 +194,10 @@
 <p class="imgTitle">CMISS地面观测数据处理流程</p>
 
 <p><img src="img/DataFlow/CMISS地面观测数据处理流程.png" alt="CMISS地面观测数据处理流程" class="dataFlowImg" /></p>
+<div class="notes">
+  <p><strong>备注：</strong> 所有的地面观测数据（自动站）默认保留24小时，可以通过配置修改。</p>
+</div>
+
 <h5 id="_6"><strong>添加地面观测</strong></h5>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
@@ -193,40 +224,67 @@
 <tbody>
 <tr>
 <td>1</td>
-<td>地面逐小时资料</td>
-<td>AWS_TEM(自动站整点气温)<br>AWS_Tmax1H(自动站1小时最高温)<br>AWS_Tmin1H(自动站1小时最低温)<br>AWS_Tmax24H(自动站24小时最高气温)<br>AWS_Tmin24H(自动站24小时最低气温）<br>AWS_TEM_Change_24H(自动站24小时变温)<br>AWS_Rain1H(自动站1小时降雨量)<br>AWS_CLO_Cov(自动站总云量)<br>AWS_RHU1H(自动站1小时相对湿度)<br>AWS_CLO_Cov_Low(自动站低云量)<br></td>
+<td>地面逐小时资料 SurfEle</td>
+<td>AWS_TEM(自动站整点气温)<br>AWS_Tmax1H(自动站1小时最高温)<br>AWS_Tmin1H(自动站1小时最低温)<br>AWS_Rain1H(自动站1小时降雨量)<br>AWS_CLO_Cov(自动站总云量)<br>AWS_RHU1H(自动站1小时相对湿度)<br>AWS_CLO_Cov_Low(自动站低云量)<br></td>
 </tr>
 <tr>
 <td>2</td>
-<td>地面日值资料</td>
-<td>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_0820(08到20时的降水)<br>AWS_Rain_2020(20到20时的降水)<br>AWS_Rain_0808(08到08时的降水)<br>AWS_Tmax1D(日最高温)<br>AWS_Tmin1D(日最低温)<br>AWS_Diff1D(日温差）<br>AWS_DTMax1D(日最高变温）<br>AWS_DTMin1D(日最低变温）<br>RHU_Avg1D(日平均相对湿度）<br>RHU_Min1D(日最小相对湿度）<br>VIS_Min1D(日最低能见度）<br></td>
+<td>地面日值资料 SurfEleDay</td>
+<td>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_0820(08到20时的降水)<br>AWS_Rain_2020(20到20时的降水)<br>AWS_Rain_0808(08到08时的降水)<br>AWS_Tmax1D(日最高温)<br>AWS_Tmin1D(日最低温)<br>AWS_Diff1D(日温差）<br>AWS_DTMax1D(日最高变温）<br>AWS_DTMin1D(日最低变温）<br>RHU_Avg1D(日平均相对湿度）<br>RHU_Min1D(日最小相对湿度）<br>VIS_Min1D(日最低能见度）<br></td>
 </tr>
 <tr>
 <td>3</td>
-<td>地面资料统计</td>
-<td>AWS_ACCRain24H(自动站24小时降雨量<br>AWS_Rain3H(自动站3小时降雨量)<br>AWS_Rain6H(自动站6小时降雨量)<br>AWS_Rain12H(自动站12小时降雨量)<br>AWS_VIS24H(自动站24小时最小能见度)<br> AWS_WIN24H(自动站24小时极大风)<br></td>
+<td>地面资料统计 StatSurfEle</td>
+<td>AWS_Tmax24H(自动站24小时最高气温)<br>AWS_Tmin24H(自动站24小时最低气温）<br>AWS_TEM_Change_24H(自动站24小时变温)<br>AWS_ACCRain24H(自动站24小时累计降水)<br>AWS_Rain3H(自动站3小时降雨量)<br>AWS_Rain6H(自动站6小时降雨量)<br>AWS_Rain12H(自动站12小时降雨量)<br>AWS_VIS24H(自动站24小时最小能见度)<br> AWS_WIN24H(自动站24小时极大风)<br></td>
 </tr>
 <tr>
 <td>4</td>
-<td>累计降水</td>
+<td>累计降水 AccuRain</td>
 <td>AWS_ACCRain（自动站手动逐小时累计降雨量）</td>
 </tr>
 <tr>
 <td>5</td>
-<td>统计降水</td>
+<td>统计降水 StatRain</td>
 <td>AWS_CountRain（自动站手动降雨量总和）</td>
 </tr>
 <tr>
 <td>6</td>
-<td>逐小时环境</td>
+<td>逐小时环境 AQI</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<div class="notes">
+  <p><strong>备注：</strong> 降水的数据0和0.0的区别，0表示观测了降水但是无法测量，0.0表示无降水。</p>
+</div>
+
+<p><strong>自动站插值分辨率规范</strong></p>
+<p>自动站要素可支持间隔：2.5、0.25、0.125、0.1、0.05、0.02、0.01（单位°）</p>
+<ul>
+<li>
+<p>全国大部分省适用于0.02（单位°）</p>
+</li>
+<li>
+<p>新疆、西藏、内蒙、甘肃、青海、试用0.05。（单位°）</p>
+</li>
+<li>
+<p>北京、天津、上海、海南适用于0.01（单位°）</p>
+</li>
+<li>
+<p>其他市一级区域适用于0.01（单位°）</p>
+</li>
+<li>
+<p>全中国使用0.125（单位°）</p>
+</li>
+</ul>
 <h4 id="_7"><strong>数值预报</strong></h4>
 <p class="imgTitle">CMISS数值预报处理流程</p>
 
 <p><img src="img/DataFlow/CMISS数值预报(Ec_thin)处理流程.png" alt="CMISS数值预报(Ec_thin)处理流程" class="dataFlowImg" /></p>
+<div class="notes">
+  <p><strong>备注：</strong>欧洲中心细网格(Ecthin)的预报时间一般是10天，共计53个文件。</p>
+</div>
+
 <p class="imgTitle">CMISS智能网格处理流程</p>
 
 <p><img src="img/DataFlow/CMISS数值预报(智能网格)处理流程.png" alt="CMISS数值预报(智能网格)处理流程" class="dataFlowImg" /></p>
@@ -422,6 +480,7 @@
 <li>查看<strong>日志</strong></li>
 </ul>
 <hr />
+<h2 id="micaps"><strong>Micaps</strong></h2>
 <h3 id="_18"><strong>格点数据</strong></h3>
 <p>处理非CMISS接口的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）</p>
 <h4 id="_19"><strong>自动站数据</strong></h4>
@@ -732,5 +791,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-09-09 14:41:21
+Build Date UTC : 2019-09-23 10:09:46
 -->
