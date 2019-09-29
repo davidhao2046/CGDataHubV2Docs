@@ -1,6 +1,6 @@
 ---
 <div class="notes">
-  文档更新日期：2019-09-09</p>
+  文档更新日期：2019-09-16</p>
 </div>
 ---
 
@@ -13,8 +13,8 @@
  5. 缩短了数据处理任务的配置时间，新建任务时自动生成相关配置。
  6. 运行于B/S架构，可以在任何机器上监控数据任务的运行情况。
 
-## **主页**
- 主页提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
+### **概览**
+ 概览提供了系统运行情况总览的视图，包括错误日志，任务数量统计和快捷导航。
 <img src="img/主页.png" alt="主页" class="img" />
 
  
@@ -77,6 +77,10 @@
 <p class="imgTitle">CMISS地面观测数据处理流程</p>
 <img src="img/DataFlow/CMISS地面观测数据处理流程.png" alt="CMISS地面观测数据处理流程" class="dataFlowImg" />
 
+<div class="notes">
+  <p><strong>备注：</strong> 所有的地面观测数据（自动站）默认保留24小时，可以通过配置修改。</p>
+</div>
+
 ##### **添加地面观测**
 
  1. 点击**添加新项目**
@@ -91,17 +95,35 @@
   <p><strong>备注：</strong> 系统会根据**接口类型**自动在设置的**目标路径**下自动新建对应的数据文件夹。</p>
 </div>
 
+
 **地面观测接口类型及数据类型对应表**
 
  |序号| 接口类型 |数据类型 |
 |--|--|--|
-| 1 | 地面逐小时资料 | AWS_TEM(自动站整点气温)<br>AWS_Tmax1H(自动站1小时最高温)<br>AWS_Tmin1H(自动站1小时最低温)<br>AWS_Tmax24H(自动站24小时最高气温)<br>AWS_Tmin24H(自动站24小时最低气温）<br>AWS_TEM_Change_24H(自动站24小时变温)<br>AWS_Rain1H(自动站1小时降雨量)<br>AWS_CLO_Cov(自动站总云量)<br>AWS_RHU1H(自动站1小时相对湿度)<br>AWS_CLO_Cov_Low(自动站低云量)<br>|
-| 2 | 地面日值资料 |AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_0820(08到20时的降水)<br>AWS_Rain_2020(20到20时的降水)<br>AWS_Rain_0808(08到08时的降水)<br>AWS_Tmax1D(日最高温)<br>AWS_Tmin1D(日最低温)<br>AWS_Diff1D(日温差）<br>AWS_DTMax1D(日最高变温）<br>AWS_DTMin1D(日最低变温）<br>RHU_Avg1D(日平均相对湿度）<br>RHU_Min1D(日最小相对湿度）<br>VIS_Min1D(日最低能见度）<br> |
-| 3 | 地面资料统计 |AWS_ACCRain24H(自动站24小时降雨量<br>AWS_Rain3H(自动站3小时降雨量)<br>AWS_Rain6H(自动站6小时降雨量)<br>AWS_Rain12H(自动站12小时降雨量)<br>AWS_VIS24H(自动站24小时最小能见度)<br> AWS_WIN24H(自动站24小时极大风)<br>|
-| 4 | 累计降水 | AWS_ACCRain（自动站手动逐小时累计降雨量）|
-| 5 | 统计降水 | AWS_CountRain（自动站手动降雨量总和）|
-| 6 | 逐小时环境 | |
+| 1 | 地面逐小时资料 SurfEle | AWS_TEM(自动站整点气温)<br>AWS_Tmax1H(自动站1小时最高温)<br>AWS_Tmin1H(自动站1小时最低温)<br>AWS_Rain1H(自动站1小时降雨量)<br>AWS_CLO_Cov(自动站总云量)<br>AWS_RHU1H(自动站1小时相对湿度)<br>AWS_CLO_Cov_Low(自动站低云量)<br>|
+| 2 | 地面日值资料 SurfEleDay |AWS_Rain_2008(20到08时的降水)<br>AWS_Rain_0820(08到20时的降水)<br>AWS_Rain_2020(20到20时的降水)<br>AWS_Rain_0808(08到08时的降水)<br>AWS_Tmax1D(日最高温)<br>AWS_Tmin1D(日最低温)<br>AWS_Diff1D(日温差）<br>AWS_DTMax1D(日最高变温）<br>AWS_DTMin1D(日最低变温）<br>RHU_Avg1D(日平均相对湿度）<br>RHU_Min1D(日最小相对湿度）<br>VIS_Min1D(日最低能见度）<br> |
+| 3 | 地面资料统计 StatSurfEle |AWS_Tmax24H(自动站24小时最高气温)<br>AWS_Tmin24H(自动站24小时最低气温）<br>AWS_TEM_Change_24H(自动站24小时变温)<br>AWS_ACCRain24H(自动站24小时累计降水)<br>AWS_Rain3H(自动站3小时降雨量)<br>AWS_Rain6H(自动站6小时降雨量)<br>AWS_Rain12H(自动站12小时降雨量)<br>AWS_VIS24H(自动站24小时最小能见度)<br> AWS_WIN24H(自动站24小时极大风)<br>|
+| 4 | 累计降水 AccuRain | AWS_ACCRain（自动站手动逐小时累计降雨量）|
+| 5 | 统计降水 StatRain| AWS_CountRain（自动站手动降雨量总和）|
+| 6 | 逐小时环境 AQI| |
 
+<div class="notes">
+  <p><strong>备注：</strong> 降水的数据0和0.0的区别，0表示观测了降水但是无法测量，0.0表示无降水。</p>
+</div>
+
+**自动站插值分辨率规范**
+
+自动站要素可支持间隔：2.5、0.25、0.125、0.1、0.05、0.02、0.01（单位°）
+
+* 全国大部分省适用于0.02（单位°）
+
+* 新疆、西藏、内蒙、甘肃、青海、试用0.05。（单位°）
+
+* 北京、天津、上海、海南适用于0.01（单位°）
+
+* 其他市一级区域适用于0.01（单位°）
+
+* 全中国使用0.125（单位°）
 
 
 #### **数值预报**
@@ -109,6 +131,10 @@
 
 <p class="imgTitle">CMISS数值预报处理流程</p>
 <img src="img/DataFlow/CMISS数值预报(Ec_thin)处理流程.png" alt="CMISS数值预报(Ec_thin)处理流程" class="dataFlowImg" />
+
+<div class="notes">
+  <p><strong>备注：</strong>欧洲中心细网格(Ecthin)的预报时间一般是10天，共计53个文件。</p>
+</div>
 
 
 <p class="imgTitle">CMISS智能网格处理流程</p>
@@ -235,6 +261,9 @@
  - 查看**日志**
 
 ---
+
+## **Micaps**
+
 ###  **格点数据**
 
 处理非CMISS接口的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）
@@ -332,8 +361,8 @@
 
 #### **GRB2数据（单要素）**
 
-<p class="imgTitle">MicapsGRB2数据处理流程 </p>
-<img src="img/DataFlow/MicapsGRB2数据处理流程.png" alt="MicapsGRB2数据处理流程 " class="dataFlowImg" />
+<p class="imgTitle">MicapsGRB2数据处理流程</p>
+<img src="img/DataFlow/MicapsGRB2数据处理流程.png" alt="MicapsGRB2数据处理流程" class="dataFlowImg" />
 
 ##### **GRB2数据（单要素）**
  1. 点击**添加新项目**
@@ -389,11 +418,9 @@
 ###  雷达
 处理非CMISS接口的的雷达数据，包括Bin、Pup、LatLon和多站拼图。
 
-<p class="imgTitle">Micaps雷达（需拼图）数据处理流程 </p>
-<img src="img/DataFlow/Micaps雷达（需拼图）数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" />
-
 <p class="imgTitle">Micaps雷达数据处理流程 </p>
 <img src="img/DataFlow/Micaps雷达数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" />
+
 
 |序号| 雷达|备注 |
 |--|--|--|

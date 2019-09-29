@@ -1,3 +1,6 @@
 site_name: DataHub 2.0使用手册
+nav:
+    - 主页: index.md
+    - 气象数据详解: more.md
 extra_css:
     - css/main.css
