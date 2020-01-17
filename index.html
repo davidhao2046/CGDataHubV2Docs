@@ -51,7 +51,10 @@
                                 <a href=".">主页</a>
                             </li>
                             <li >
-                                <a href="more/">气象数据详解</a>
+                                <a href="more/">更多信息</a>
+                            </li>
+                            <li >
+                                <a href="qa/">常见问题</a>
                             </li>
                         </ul>
 
@@ -83,21 +86,15 @@
         <li class="main "><a href="#_2">概览</a></li>
         <li class="main "><a href="#_3">数据服务</a></li>
             <li><a href="#cmiss">CMISS</a></li>
-        <li class="main "><a href="#micaps">Micaps</a></li>
-            <li><a href="#_18">格点数据</a></li>
-            <li><a href="#_22">卫星云图</a></li>
-            <li><a href="#_24">雷达</a></li>
-            <li><a href="#_26">城市预报</a></li>
-            <li><a href="#_28">脚本调用</a></li>
-            <li><a href="#_29">全国站点管理</a></li>
-            <li><a href="#_30">设置</a></li>
+            <li><a href="#micaps">Micaps</a></li>
+            <li><a href="#_26">设置</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <hr />
 <p><div class="notes">
-  文档更新日期：2019-09-16</p>
+  文档更新日期：2020-1-16</p>
 </div></p>
 <hr />
 <h3 id="_1"><strong>新特性</strong></h3>
@@ -152,11 +149,11 @@
 <tr>
 <td>1</td>
 <td>地面观测</td>
-<td>每10分钟</td>
+<td>每小时的10分</td>
 </tr>
 <tr>
 <td>2</td>
-<td>数据预报</td>
+<td>数值预报</td>
 <td>每天的4点、16点</td>
 </tr>
 <tr>
@@ -209,8 +206,14 @@
 <li>选择<strong>接口类型</strong>，例如：地面逐小时资料</li>
 <li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
 <div class="notes">
-  <p><strong>备注：</strong> 系统会根据<strong>接口类型</strong>自动在设置的<strong>目标路径</strong>下自动新建对应的数据文件夹。</p>
+  <p><strong>备注：</strong> 只要选择到FetchData即可，系统会根据<strong>接口类型</strong>自动在设置的<strong>目标路径</strong>下自动新建对应的数据文件夹（文件夹名称参考下表的数据类型），点数据则会放置到W:\SharedData\RawData\pointdata。</p>
 </div></li>
+</ol>
+<p><strong>自动站质量监控规则</strong></p>
+<ol>
+<li>值为空或者空格。</li>
+<li>气温小于-50或者气温大于50。 </li>
+<li>降水大于1000，降水小于0。</li>
 </ol>
 <p><strong>地面观测接口类型及数据类型对应表</strong></p>
 <table>
@@ -249,13 +252,13 @@
 </tr>
 <tr>
 <td>6</td>
-<td>逐小时环境 AQI</td>
+<td>逐小时环境 Tour</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <div class="notes">
-  <p><strong>备注：</strong> 降水的数据0和0.0的区别，0表示观测了降水但是无法测量，0.0表示无降水。</p>
+  <p><strong>备注：</strong> 累计降水和统计降水只能手动；降水的数据0和0.0的区别，0表示观测了降水但是无法测量，0.0表示无降水。</p>
 </div>
 
 <p><strong>自动站插值分辨率规范</strong></p>
@@ -303,7 +306,7 @@
 </div></li>
 <li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
  <div class="notes">
-  <p><strong>备注：</strong> 系统会根据所选择的<strong>要素</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。。</p>
+  <p><strong>备注：</strong> 系统会根据所选择的<strong>要素</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。文件夹名称参考<strong>数值预报-欧洲中心-高分辨率-东北亚-接口要素及数据文件对应表</strong>。</p>
 </div></li>
 </ol>
 <p><strong>接口类型列表</strong></p>
@@ -422,7 +425,11 @@
 <div class="notes">
   <p><strong>备注：</strong> 数据名称中英文都可以。</p>
 </div></li>
-<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB</li>
+<li>勾选输出的数据种类，<strong>雷达拼图</strong> 和 <strong>单站雷达</strong></li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB
+<div class="notes">
+  <p><strong>备注：</strong> 系统会根据雷达的站点编号新建对应的文件夹，最终的文件路径为：目标路径+数据名称+站点编号。</p>
+</div></li>
 </ol>
 <h4 id="_11"><strong>卫星云图</strong></h4>
 <p class="imgTitle">CMISS卫星云图处理流程</p>
@@ -480,14 +487,14 @@
 <li>查看<strong>日志</strong></li>
 </ul>
 <hr />
-<h2 id="micaps"><strong>Micaps</strong></h2>
-<h3 id="_18"><strong>格点数据</strong></h3>
-<p>处理非CMISS接口的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）</p>
-<h4 id="_19"><strong>自动站数据</strong></h4>
+<h3 id="micaps"><strong>Micaps</strong></h3>
+<h4 id="_18"><strong>格点数据</strong></h4>
+<p>处理非接口来源的格点数据，包括自动站、D4类数据、D11类数据、D14类数据、GRB2数据（单要素）和GRB2数据（多要素）</p>
+<h5 id="_19"><strong>自动站数据</strong></h5>
 <p class="imgTitle">Micaps自动站数据处理流程</p>
 
 <p><img src="img/DataFlow/Micaps自动站数据处理流程.png" alt="Micaps自动站数据处理流程" class="dataFlowImg" /></p>
-<h4 id="_20"><strong>添加自动站数据</strong></h4>
+<p><strong>添加自动站数据</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>自动站</strong>页签</li>
@@ -503,14 +510,14 @@
 <li>设置<strong>列表数量</strong>，设置为：100</li>
 <li>设置<strong>源数据时区</strong>，点击确认保存。</li>
 </ol>
-<h4 id="d4"><strong>D4类数据</strong></h4>
+<h5 id="d4"><strong>D4类数据</strong></h5>
 <p class="imgTitle">Micaps D4类数据处理流程</p>
 
 <p><img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
  <div class="notes">
   <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
 </div></p>
-<h5 id="d4_1"><strong>添加D4类数据</strong></h5>
+<p><strong>添加D4类数据</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>D4类数据</strong>页签</li>
@@ -526,14 +533,14 @@
 <li>设置<strong>数据类型</strong>，例如：设置为预报</li>
 <li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
 </ol>
-<h4 id="d11"><strong>D11类数据</strong></h4>
+<h5 id="d11"><strong>D11类数据</strong></h5>
 <p class="imgTitle">Micaps D11类数据处理流程</p>
 
 <p><img src="img/DataFlow/Micaps数值预报数据处理流程.png" alt="Micaps数值预报数据处理流程" class="dataFlowImg" />
  <div class="notes">
   <p><strong>备注：</strong> 只有数据的时次跟上次时次不同才会清空数据清数据文件夹。</p>
 </div></p>
-<h5 id="d11_1"><strong>添加D11类数据</strong></h5>
+<p><strong>添加D11类数据</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>D11类数据</strong>页签</li>
@@ -550,11 +557,11 @@
 <li>设置<strong>数据类型</strong>，例如：设置为预报</li>
 <li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
 </ol>
-<h4 id="d14"><strong>D14类数据</strong></h4>
+<h5 id="d14"><strong>D14类数据</strong></h5>
 <p class="imgTitle">Micaps第14类数据处理流程</p>
 
 <p><img src="img/DataFlow/Micaps第14类数据处理流程.png" alt="Micaps数据预报数据处理流程" class="dataFlowImg" /></p>
-<h5 id="d14_1"><strong>添加D14类数据</strong></h5>
+<p><strong>添加D14类数据</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>D14类数据</strong>页签</li>
@@ -567,30 +574,32 @@
  <div class="notes">
   <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
 </div></li>
+<li>设置<strong>文件格式</strong>，例如：yyMMddHH.ttt
+ <div class="notes">
+  <p><strong>备注：</strong>例如文件名为RDFC_19092500.024，19092500表示数据时间，024表示预报时次，则需要配置为yyMMddHH.ttt。输出的vwwe文件命名是以文件名中的时间和当前系统时间对比，D+（+/-_N）_00_00.vwwe N是文件名中的时间和当前系统时间对比相差的天数</p>
+</div></li>
 </ol>
-<h4 id="grb2"><strong>GRB2数据（单要素）</strong></h4>
+<h5 id="grb2"><strong>GRB2数据（单要素）</strong></h5>
 <p class="imgTitle">MicapsGRB2数据处理流程</p>
 
 <p><img src="img/DataFlow/MicapsGRB2数据处理流程.png" alt="MicapsGRB2数据处理流程" class="dataFlowImg" /></p>
-<h5 id="grb2_1"><strong>GRB2数据（单要素）</strong></h5>
-<ol>
-<li>点击<strong>添加新项目</strong></li>
-<li>选择<strong>GRB2数据（单要素）</strong>页签</li>
-<li>填入<strong>数据名称</strong>，例如：
+<p><strong>GRB2数据（单要素）</strong>
+ 1. 点击<strong>添加新项目</strong>
+ 2. 选择<strong>GRB2数据（单要素）</strong>页签
+ 3. 填入<strong>数据名称</strong>，例如：
  <div class="notes">
   <p><strong>备注：</strong> 数据名称建议使用英文命名。</p>
-</div></li>
-<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\Ecthin\SmartGrid_SPCC</li>
-<li>在</li>
-<li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoTherms
+</div>
+ 4. 选择<strong>数据路径</strong>，例如：D:\Micaps_data\Ecthin\SmartGrid_SPCC
+ 5. 在
+ 6. 选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData\newIsoTherms
  <div class="notes">
   <p><strong>备注：</strong> 系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。</p>
-</div></li>
-<li>设置<strong>列表数量</strong>，设置为：100</li>
-<li>设置<strong>数据类型</strong>，例如：设置为预报</li>
-<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
-</ol>
-<h4 id="_21">数据任务的其它操作</h4>
+</div>
+ 7. 设置<strong>列表数量</strong>，设置为：100
+ 8. 设置<strong>数据类型</strong>，例如：设置为预报
+ 9. 设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</p>
+<h4 id="_20">数据任务的其它操作</h4>
 <ul>
 <li><strong>激活</strong>任务</li>
 <li>修改<strong>配置</strong>
@@ -603,14 +612,15 @@
 <li>查看<strong>日志</strong></li>
 </ul>
 <hr />
-<h3 id="_22">卫星云图</h3>
-<p>处理非CMISS接口的卫星云图数据</p>
+<h4 id="_21"><strong>卫星云图</strong></h4>
+<p>处理非接口来源的卫星云图数据</p>
 <p class="imgTitle">Micaps卫星云图处理流程 </p>
 
 <p><img src="img/DataFlow/Micaps卫星云图处理流程.png" alt="Micaps卫星云图处理流程 " class="dataFlowImg" /></p>
-<h5 id="_23">添加卫星云图</h5>
+<p><strong>添加卫星云图-(风云2)</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
+<li>点击<strong>FY2G</strong>页签</li>
 <li>填入<strong>数据名称</strong>，例如：IR1</li>
 <li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\satellite</li>
 <li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\satellite
@@ -623,9 +633,40 @@
 </div></li>
 <li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
 </ol>
-<hr />
-<h3 id="_24">雷达</h3>
-<p>处理非CMISS接口的的雷达数据，包括Bin、Pup、LatLon和多站拼图。</p>
+<p><strong>添加卫星云图-(风云4)</strong></p>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>点击<strong>FY4A</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：FY4</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\satellite\FY4A_4KM_CH12</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\satellite
+ <div class="notes">
+  <p><strong>备注：</strong>
+  系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。
+</p>
+</div></li>
+<li>设置<strong>卫星配置</strong>，例如：通道分辨率：4KM，通道：NOMChannel12，经度：63，维度：53，输出分辨率：1800*1200
+ <div class="notes">
+  <p><strong>备注：</strong><br> 1. 通道分辨率和通道需要配合使用。<br>2. 经度和纬度定义的是云图的左上起始点，右下角会根据通道和通道分辨率计算得出。<br>3. 维斯引擎要求云图的分辨率可以是2的倍数。</p>
+</div></li>
+<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+</ol>
+<p><strong>添加PNG卫星图片</strong></p>
+<p>直接处理已有的PNG+vgr卫星云图文件。</p>
+<ol>
+<li>点击<strong>添加新项目</strong></li>
+<li>点击<strong>PNG</strong>页签</li>
+<li>填入<strong>数据名称</strong>，例如：PNGs</li>
+<li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\satellite\PNGs</li>
+<li>选择<strong>目标路径</strong>，例如：W:\SharedData\Images_DB\satellite
+ <div class="notes">
+  <p><strong>备注：</strong>
+  系统会根据<strong>数据名称</strong>自动在设置的<strong>目标路径</strong>下自动新建文件夹。时间从文件夹名获取，默认为世界时。
+</p>
+</div></li>
+</ol>
+<h4 id="_22"><strong>雷达</strong></h4>
+<p>处理非接口来源的的雷达数据，包括Bin、Pup、LatLon和多站拼图。</p>
 <p class="imgTitle">Micaps雷达数据处理流程 </p>
 
 <p><img src="img/DataFlow/Micaps雷达数据处理流程.png" alt="Micaps雷达数据处理流程 " class="dataFlowImg" /></p>
@@ -651,7 +692,7 @@
 <tr>
 <td>3</td>
 <td>LatLon</td>
-<td>天气网使用的雷达产品，无须拼图</td>
+<td>天气网使用的雷达产品，无需拼图</td>
 </tr>
 <tr>
 <td>4</td>
@@ -660,7 +701,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="pup">添加Pup</h5>
+<p><strong>添加Pup</strong></p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>Pup</strong>页签</li>
@@ -670,9 +711,10 @@
  <div class="notes">
   <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
 </div></li>
-<li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
+<li>设置<strong>源数据时区</strong>，例如：选择“世界时”，点击确认保存。</li>
 </ol>
-<h5 id="_25">添加多站拼图</h5>
+<p><strong>添加多站拼图</strong></p>
+<p>多站拼图的自动拼图只支持实时数据的拼图，历史数据的拼图需要手动执行。</p>
 <ol>
 <li>点击<strong>添加新项目</strong></li>
 <li>选择<strong>多站拼图</strong>页签</li>
@@ -685,9 +727,9 @@
 <li>设置<strong>源数据时区</strong>，例如：选择“按北京时”，点击确认保存。</li>
 </ol>
 <hr />
-<h3 id="_26">城市预报</h3>
+<h4 id="_23"><strong>城镇预报</strong></h4>
 <p>处理非CMISS接口的城市预报数据，也会同时转为格点数据和点数据。</p>
-<h4 id="_27">添加城镇预报</h4>
+<p><strong>添加城镇预报</strong></p>
 <p class="imgTitle">Micpas城镇预报数据处理流程 </p>
 
 <p><img src="img/DataFlow/Micpas城镇预报数据处理流程.png" alt="Micpas城镇预报数据处理流程" class="dataFlowImg" /></p>
@@ -697,18 +739,45 @@
 <li>选择<strong>数据路径</strong>，例如：D:\Micaps_data\pointdata\SNWFD_local</li>
 <li>选择<strong>目标路径</strong>，例如：W:\SharedData\FetchData
  <div class="notes">
-  <p><strong>备注：</strong> 系统目前会默认选择IR1进行处理，此配置是方便之后扩展，可不设置。</p>
-</div></li>
-<li>选择<strong>是否移除小数点</strong></li>
-<li>设置<strong>可选参数</strong>，包括备份路径、是否移除数据。</li>
+  <p><strong>备注：</strong>
+    最终的数据输出路径有四个，分别是：<ul>
+<li>目标路径 + \newIsoTherms\ + 数据名称+ _Tmax</li>
+<li>目标路径 + \newIsoTherms\ + 数据名称+ _Tmin。</li>
+<li>W:\SharedData\pointdata\ + 数据名称+ .xml。</li>
+<li>W:\SharedData\pointdata\ + 数据名称+ _时次(例如：08,12,20)+.xml。
+  </p>
+  </div></li>
+</ul>
+</li>
+<li>选择<strong>是否合并</strong>
+ <div class="notes">
+  <p><strong>备注：</strong> 是否将同时次的文件里面的数据进行合并，同时次的判断依据是根据08，12，20的时次时次来判断，合并的时候会以最新的数据为主。
+   </p>
+  </div></li>
+<li>选择<strong>是否移除小数点</strong>
+  <div class="notes">
+  <p><strong>备注：</strong> 是否移除数据末尾的小数点，例如温度33.4，会转化为33
+   </p>
+  </div></li>
+<li>选择<strong>是否子目录</strong>
+  <div class="notes">
+  <p><strong>备注：</strong> 系统会监控数据路径下所有的子文件夹，主要是针对客户分不同的日期建立数据文件夹的场景。
+   </p>
+  </div></li>
+<li>设置<strong>可选参数</strong>，包括备份路径、是否移除数据。
+  <div class="notes">
+  <p><strong>备注：</strong>
+    开始<strong>是否移除数据</strong>后，会将处理过的数据移动到<strong>备份路径</strong>中去。
+   </p>
+  </div></li>
 </ol>
-<h3 id="_28">脚本调用</h3>
-<p>目前只使用在电码的数据转换。</p>
-<h3 id="_29">全国站点管理</h3>
-<p>管理站点的中文名称对照表。</p>
-<h3 id="_30">设置</h3>
-<h4 id="_31">系统设置</h4>
-<h5 id="_32">配置设置</h5></div>
+<h4 id="_24"><strong>脚本调用</strong></h4>
+<p>目前只使用在电码的数据转换以及Micaps的台风数据处理。</p>
+<h4 id="_25"><strong>全国站点管理</strong></h4>
+<p>管理站点的中文名称对照表，只针对脚本调用，城镇预报的站点中文名在station.xml中配置。</p>
+<h3 id="_26"><strong>设置</strong></h3>
+<h4 id="_27"><strong>系统设置</strong></h4>
+<h5 id="_28"><strong>配置设置</strong></h5></div>
         </div>
 
         <footer class="col-md-12">
@@ -791,5 +860,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-09-29 10:02:21
+Build Date UTC : 2020-01-17 10:00:12
 -->

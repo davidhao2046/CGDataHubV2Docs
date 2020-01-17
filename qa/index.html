@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>更多信息 - DataHub 2.0使用手册</title>
+        <title>常见问题 - DataHub 2.0使用手册</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -50,11 +50,11 @@
                             <li >
                                 <a href="..">主页</a>
                             </li>
-                            <li class="active">
-                                <a href="./">更多信息</a>
-                            </li>
                             <li >
-                                <a href="../qa/">常见问题</a>
+                                <a href="../more/">更多信息</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">常见问题</a>
                             </li>
                         </ul>
 
@@ -65,12 +65,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="..">
+                                <a rel="next" href="../more/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../qa/">
+                            <li class="disabled">
+                                <a rel="prev" >
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -82,51 +82,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#_1">数据时间</a></li>
-        <li class="main "><a href="#_2">雷达数据</a></li>
-        <li class="main "><a href="#_3">卫星云图</a></li>
-        <li class="main "><a href="#_4">地面观测</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <hr />
 <p><div class="notes">
-  文档更新日期：2019-09-30</p>
-</div></p>
-<h3 id="_1"><strong>数据时间</strong></h3>
-<p>目前常用的时间有两种，包括北京时（GMT +8）和世界时（GMT +0）
-<img src="DataDetails/dataTimeList.png" alt="文件时间列表" class="dataFlowImg" /></p>
-<p><strong>世界时</strong></p>
-<p><img src="DataDetails/satelliteGMT.png" alt="卫星云图文件时间" class="dataFlowImg" /></p>
-<ol>
-<li>如果数据文件名上的时间跟编辑时间差8个小时左右则为世界时间。</li>
-</ol>
-<h3 id="_2"><strong>雷达数据</strong></h3>
-<p>基本反射率产品是雷达基本观测量，单位为Dbz
-<div class="notes">
-  <p><strong>备注：</strong><br> pup雷达文件名格式:<br> 
-20170622.1003001.02.19.10 <br> 
-年月日.时分秒.仰角（02表示15度）.产品.公里（目前常用230）</p>
-</div></p>
-<p class="imgTitle">雷达数据配色条</p>
-
-<p><img src="DataDetails/radarLegend.png" alt="雷达配色条" class="dataFlowImg" /></p>
-<p><strong>参考链接：</strong></p>
-<p><a href="http://www.weather.com.cn/radar/" target="_blank">天气网雷达页面</a></p>
-<h3 id="_3"><strong>卫星云图</strong></h3>
-<p>目前普遍使用的是风云2号红外云图，以后会切换到风云4号红外云图。</p>
-<p><strong>参考链接:</strong></p>
-<p><a href="http://www.weather.com.cn/satellite/" target="_blank">天气网云图页面</a>
-<br>
-<a href="http://himawari8.nict.go.jp/zh/himawari8-image.htm" target="_blank">向日葵8号网页</a></p>
-<h3 id="_4"><strong>地面观测</strong></h3>
-<p>地面观测即自动站数据。
-<div class="notes">
-  <p><strong>备注：</strong>自动站数据只有整点气温是当前时刻的，其它数据都是上一时次的数据。举例：13到的数据，只有整点气温是13点的，其它的数据都是12：00到12：59的数据，例如降水，一小时最高温。
-</div></p>
-<hr />
-<p>地面观测、数值预报、雷达、云图、城镇预报、台风路径和旅游</p></div>
+  文档更新日期：2020-01-16</p>
+</div></p></div>
         </div>
 
         <footer class="col-md-12">
